@@ -1,0 +1,198 @@
+body {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    position: absolute;
+     background-image: url('images/background.png'); 
+}
+
+header {
+	position: absolute;
+	top: 0px;
+	height: 50px;
+	width: 100%;
+    box-shadow: 0px 1px 3px 0px rgba(75, 75, 75, 0.75) !important;
+
+}
+
+header a {
+	width: 50px;
+	position: absolute;
+	height: 50px;
+	left 0px;
+}
+
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	height: 50px;
+	width: 100%;
+    box-shadow: 0px -3px 0px -1px rgba(75, 75, 75, 0.55) !important;
+
+}
+
+.welcome-clip {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    background-color: #67677F;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.msg-popup {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 500px;
+	height: 500px;
+	background: rgba(0,0,0,0.5);
+}
+
+.alert {
+	/* margin-top: 200px; */
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 65px;
+	bottom: 0px;
+}
+.users-popup{
+	height: 200px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 500px;
+	background-color: transparent;
+}
+
+.user {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	box-shadow: 0px 0px 6px 0px rgba(105, 180, 250, 0.75) !important;
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.user:hover {
+	box-shadow: 0px 0px 25px 0px rgba(105, 180, 250, 0.75) !important;
+
+}
+
+.user span {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+.candidate {
+	left: 0px;
+	background-image: url('images/profile.png');
+}
+
+.admin {
+	left: 0px;
+	right:0px;
+	margin:auto;
+	border-radius: 50%;
+	background-image: url('images/admin.jpg');
+	background-position-y: 10%; 
+}
+.employee {
+	right: 0px;
+	background-image: url('images/profile.png');
+}
+
+.candidate-page, .employee-page, .admin-page{
+	background-color: white;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.candidate-header, .employee-header, .admin-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.candidate-content ,.employee-content, .admin-content{
+	top: 50px;
+	bottom: 50px;
+	position: absolute;
+	width: 500px;
+	left: 0px;
+	right: 0px;
+	padding-top: 50px;
+	margin: auto;
+}
+
+.admin-content {
+	width: 100%;
+}
+
+.admin-login {
+	width: 400px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	box-shadow: 0px 1px 3px 0px rgba(75, 75, 75, 0.75) !important;
+	padding: 12px;
+}
+
+.admin-assist {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.candidate-search, .employee-search {
+    position: absolute;
+    width: 50%;
+    top: 0px;
+    bottom: 0px;
+    overflow: auto;
+}
+
+.employee-search {
+	left: 50%;
+}
+
+.panel-default {
+	border-color: transparent;
+}
+.panel > .panel-body + .table, .panel > .panel-body + .table-responsive, .panel > .table + .panel-body, .panel > .table-responsive + .panel-body{
+	border: 1px solid #ddd;
+}
+
+
+
+
+
+
+

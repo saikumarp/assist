@@ -1,0 +1,130 @@
+<div class="admin-page" ng-controller="AdminCtrl">
+   <header class="admin-header">
+   		<a href="#/home"  title="back to home" class="glyphicon glyphicon-arrow-left"></a>
+   		Admin Page
+   </header>
+	<section class="admin-content" ng-switch="currentScreen">
+		<div class="admin-login" ng-switch-when="login">
+			<form class="form-horizontal">
+			  <div class="form-group">
+			    <label for="inputusername" class="col-sm-4 control-label">UserName:- </label>
+			    <div class="col-sm-5">
+			      <input type="email" ng-model="$parent.username" class="form-control" id="inputusername" placeholder="username">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputpassword" class="col-sm-4 control-label">Password:- </label>
+			    <div class="col-sm-5">
+			      <input type="password" ng-model="$parent.password" class="form-control" id="inputpassword" placeholder="password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-4 col-sm-5">
+			      <button type="submit" class="btn btn-primary" ng-click="authenticateUser()">Submit</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		<div class="admin-assist" ng-switch-when="assist">
+			<div class="candidate-search">
+				<div class="panel panel-default">
+				   <div class="panel-heading">Employees</div>
+				  	<div class="panel-body">
+				    	<p>List of Employees & Candidates Will Display Based on Search String</p>
+		      			<input type="text" ng-model="userSearch" class="form-control" id="inputname" placeholder="Search By Name Or Skills">
+				  	</div>
+
+					<table class="table">
+						<thead>
+				        	<tr>
+				          		<th>#</th>
+				          		<th>Name</th>
+				          		<th>Skills</th>
+				          		<th>ID:</th>
+				        	</tr>
+				      	</thead>
+				      	<tbody>
+				      		<tr ng-repeat="employee in arrEmployess| filter:userSearch|orderBy:employee.name">
+				      			<td >
+				      				<input type="radio" name="currentEmpId" ng-model="$parent.currentEmpId" ng-value="employee.Id">
+				      			</td>
+				      			<td ng-bind="employee.name"></td>
+				      			<td ng-bind="employee.skills"></td>
+				      			<td ng-bind="employee.Id"></td>
+				      		</tr>
+				      	</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="employee-search">
+				<div class="panel panel-default">
+				   <div class="panel-heading">Candidates</div>
+				  	<div class="panel-body">
+				    	<p>List of Candidates Will Assign to Employess on Assign button click</p>
+		      			<button type="submit" class="btn btn-primary" ng-click="assign(currentEmpId)">Assign</button>
+				  	</div>
+
+					<table class="table">
+						<thead>
+				        	<tr >
+				          		<th>#</th>
+				          		<th>Name</th>
+				          		<th>Skills</th>
+				          		<th>ID:</th>
+				        	</tr>
+				      	</thead>
+				      	<tbody>
+				      		<tr  ng-repeat="candidate in arrCandidates| filter: userSearch">
+				      			<td >
+				      				<input type="checkbox" ng-model="candidate.stateValue"
+           								ng-true-value="'YES'" ng-false-value="'NO'">
+				      			</td>
+				      			<td ng-bind="candidate.name"></td>
+				      			<td ng-bind="candidate.skills"></td>
+				      			<td ng-bind="candidate.Id"></td>
+				      		</tr>
+				      	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="admin-assist-result"  ng-switch-when="assist-result">
+			<div class="panel panel-default">
+				   <div class="panel-heading">Employee & Assigned Candidates</div>
+				  	<div class="panel-body">
+				    	<b><p> Hi Admin, Following Are The Final AssistmentResult</p>
+				    	<p> EmpName: {{assistResult.eName}}</p>
+				    	<p>Skills: {{assistResult.skills}}</p>
+				    	<p>List of Following Candidates Assign to {{assistResult.eName}}</p>
+				    	</b>
+				  	</div>
+
+					<table class="table">
+						<thead>
+				        	<tr>
+				          		<th>#</th>
+				          		<th>Name</th>
+				          		<th>Skills</th>
+				          		<th>ID:</th>
+				        	</tr>
+				      	</thead>
+				      	<tbody>
+				      		<tr  ng-repeat="candidate in assistResult.candidates" ng-show="candidate.stateValue">
+				      			<td ng-bind="$index"></td>
+				      			<td ng-bind="candidate.name"></td>
+				      			<td ng-bind="candidate.skills"></td>
+				      			<td ng-bind="candidate.Id"></td>
+				      		</tr>
+				      	</tbody>
+					</table>
+				</div>
+		</div>
+	</section>
+
+	<footer  class="admin-footer">
+		
+	</footer>
+	<div class="msg-popup" ng-show="msg">
+			<div class="alert alert-success" role="alert">{{msg}} <button type="submit" class="btn btn-primary" ng-click="msg=''">OK</button></div>
+	</div>
+</div>
